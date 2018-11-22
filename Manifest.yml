@@ -1,0 +1,79 @@
+vendor_path: ./go_workspace/src
+exclude_dir:
+- test
+- _fixture
+- integration
+- vendor
+exclude_build:
+- ignore
+- android
+- integration
+exclude_packages: []
+local_packages: []
+constraints: {}
+packages:
+  github.com/dgrijalva/jwt-go:
+    version: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
+    commithash: 06ea1031745cb8b3dab3f6a236daf2b0aa468b7e
+    subpackages: []
+    deps: []
+  github.com/labstack/echo:
+    version: 3.3.4
+    commithash: d36ff729613dd8e825455c504bea0586c43ac03d
+    subpackages: []
+    deps:
+    - github.com/dgrijalva/jwt-go
+    - github.com/labstack/gommon/bytes
+    - github.com/labstack/gommon/color
+    - github.com/labstack/gommon/log
+    - github.com/labstack/gommon/random
+    - github.com/valyala/fasttemplate
+    - golang.org/x/crypto/acme/autocert
+  github.com/labstack/gommon:
+    version: 6fe1405d73ec4bd4cd8a4ac8e2a2b2bf95d03954
+    commithash: 6fe1405d73ec4bd4cd8a4ac8e2a2b2bf95d03954
+    subpackages:
+    - github.com/labstack/gommon/bytes
+    - github.com/labstack/gommon/color
+    - github.com/labstack/gommon/log
+    - github.com/labstack/gommon/random
+    deps:
+    - github.com/mattn/go-colorable
+    - github.com/mattn/go-isatty
+    - github.com/valyala/fasttemplate
+  github.com/mattn/go-colorable:
+    version: 167de6bfdfba052fa6b2d3664c8f5272e23c9072
+    commithash: 167de6bfdfba052fa6b2d3664c8f5272e23c9072
+    subpackages: []
+    deps:
+    - github.com/mattn/go-isatty
+  github.com/mattn/go-isatty:
+    version: 0360b2af4f38e8d38c7fce2a9f4e702702d73a39
+    commithash: 0360b2af4f38e8d38c7fce2a9f4e702702d73a39
+    subpackages: []
+    deps:
+    - golang.org/x/sys/unix
+  github.com/valyala/bytebufferpool:
+    version: e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7
+    commithash: e746df99fe4a3986f4d4f79e13c1e0117ce9c2f7
+    subpackages: []
+    deps: []
+  github.com/valyala/fasttemplate:
+    version: dcecefd839c4193db0d35b88ec65b4c12d360ab0
+    commithash: dcecefd839c4193db0d35b88ec65b4c12d360ab0
+    subpackages: []
+    deps:
+    - github.com/valyala/bytebufferpool
+  golang.org/x/crypto:
+    version: 182114d582623c1caa54f73de9c7224e23a48487
+    commithash: 182114d582623c1caa54f73de9c7224e23a48487
+    subpackages:
+    - golang.org/x/crypto/acme
+    - golang.org/x/crypto/acme/autocert
+    deps: []
+  golang.org/x/sys:
+    version: c28acc882ebcbfbe8ce9f0f14b9ac26ee138dd51
+    commithash: c28acc882ebcbfbe8ce9f0f14b9ac26ee138dd51
+    subpackages:
+    - golang.org/x/sys/unix
+    deps: []

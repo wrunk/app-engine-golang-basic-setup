@@ -1,0 +1,45 @@
+#
+# app.yaml is the primary configuration file for an app engine service
+# A Google Cloud Project can have many app engine service. See:
+# https://cloud.google.com/appengine/docs/standard/go/config/appref
+#
+runtime: go
+api_version: go1.9
+# You will need to have a service called default which will get
+# all traffic that isn't routed elsewhere.
+service: 'default'
+
+# Enable warmup requests. See server/main.go for details
+inbound_services:
+- warmup
+
+
+handlers:
+# See readme for details on warmup requests
+# /_ah/... is a reserved app engine url path
+- url: /_ah/warmup
+  script: _go_app
+  # This means we have to be a app engine project admin to access this route
+  # which the app engine system will be.
+  login: admin
+
+# Catch all, route all paths to our go app
+- url: /.*
+  script: _go_app
+
+# These might not be necessary anymore. Perhaps run gcloud deploy in verbose mode to find out
+# https://stackoverflow.com/questions/37363880/app-yaml-skip-files-skip-an-entire-directory-but-one-individual-file
+# https://stackoverflow.com/questions/8889151/how-do-i-extend-a-regular-expression-to-exclude-all-files-in-a-folder
+skip_files:
+- ^node_modules/*.*
+- ^(.*/)?app\.yaml
+- ^(.*/)?app\.yml
+- ^(.*/)?index\.yaml
+- ^(.*/)?index\.yml
+- ^(.*/)?#.*#
+- ^(.*/)?.*~
+- ^(.*)\.log
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*/RCS/.*
+#- ^(.*/)?\..*
+- ^(.*/)?.*\.bak$
